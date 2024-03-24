@@ -47,6 +47,6 @@ app.use(`${api}/orders`,orderRoute)
 //to protect Api no one can access api without JWT token
 
 
-app.listen(3500, () => {
-  console.log("app is listening on port no 3500");
+app.listen(process.env.PORT || 3500, () => {
+  console.log(`app is listening on port ${process.env.PORT}`);
 });
