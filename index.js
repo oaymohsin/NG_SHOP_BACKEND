@@ -16,6 +16,12 @@ const authJwt=require('./middlewares/jwt')
 app.use(cors());
 app.options("*", cors());
 
+app.use('/',(req,res)=>{
+  res.send("hello from server")
+})
+
+
+
 //middlewares
 app.use("/public/uploads",express.static(__dirname+"/public/uploads"))
 app.use(bodyParser.json());
