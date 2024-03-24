@@ -16,9 +16,9 @@ const authJwt=require('./middlewares/jwt')
 app.use(cors());
 app.options("*", cors());
 
-app.use('/',(req,res)=>{
-  res.send("hello from server")
-})
+// app.use('/',(req,res)=>{
+//   res.send("hello from server")
+// })
 
 
 
