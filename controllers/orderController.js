@@ -169,15 +169,16 @@ exports.createCheckoutSession = async (req, res, next) => {
     // );
     console.log(lineItems);
     
-    
-    const clientHost = req.headers.referer;
+    const clientHost = req.get('clientURL');
+    // console.log("Client Host:",Allheaders);
+    // const clientHost = req.headers.referer;
     // console.log("Client Host:", clientHost);
 
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: "payment",
-      success_url: `${clientHost}success`,
-      cancel_url: `${clientHost}error`,
+      success_url: `${clientHost}/success`,
+      cancel_url: `${clientHost}/error`,
     });
 
     res.json({ id: session.id });
