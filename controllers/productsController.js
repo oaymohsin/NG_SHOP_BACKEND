@@ -97,6 +97,7 @@ exports.createNewProduct = async (req, res, next) => {
 
 exports.getProductsList = async (req, res, next) => {
   try {
+    
     let filter = {};
     if (req.query.categories) {
       filter = { category: req.query.categories.split(",") };
