@@ -170,9 +170,7 @@ exports.createCheckoutSession = async (req, res, next) => {
     console.log(lineItems);
     
     const clientHost = req.get('clientURL');
-    // console.log("Client Host:",Allheaders);
-    // const clientHost = req.headers.referer;
-    // console.log("Client Host:", clientHost);
+    
 
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
