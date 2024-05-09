@@ -19,6 +19,22 @@ function authJwt() {
   });
 }
 
+
+// function authJwt() {
+//   const secret = process.env.secret;
+//   const api = process.env.API_URL;
+//   return jwt({ secret, algorithms: ["HS256"], isRevoked: isRevoked }).unless({
+//     path: [
+//       { url: /\/public\/uploads\/.*?/i }, // Case-insensitive match for uploads
+//       { url: /\/api\/v1\/products\/.*?/i },
+//       { url: /\/api\/v1\/categories\/.*?/i },
+//       { url: /\/api\/v1\/orders\/.*?/i },
+//       `${api}/users/userLogin`,
+//       `${api}/users/createUser`,
+//     ],
+//   });
+// }
+
 async function isRevoked(req, token) {
   if (!token.payload.isAdmin) {
     return true;
